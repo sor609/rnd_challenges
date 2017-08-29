@@ -4,9 +4,17 @@
 #
 
 import random, string
+from random import SystemRandom
 
-n = int(raw_input("Enter password length [0-32]> "))
+print "Password generator\n"
 
-s = ''.join(random.SystemRandom().sample(string.ascii_letters+string.digits, n))
+a = int(raw_input("Enter # of letters > "))
+b = int(raw_input("Enter # of digits > "))
+c = int(raw_input("Enter # of special chars > "))
+rnd_lett = SystemRandom().sample(string.ascii_letters,a)
+rnd_digi = SystemRandom().sample(string.digits,b)
+rnd_char = SystemRandom().sample(string.punctuation,c)
 
-print s
+s = ''.join(random.sample(rnd_lett+rnd_digi+rnd_char,a+b+c))
+
+print "\n" + s
